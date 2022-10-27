@@ -16,9 +16,16 @@ use App\Models\User;
 |
 */
 
+//Route::get('/', function () {
+//    return view('home');
+//});
+
 Route::get('/', function () {
-    return view('welcome');
+    $brands =DB::table('brands')->get();
+    return view('home',compact('brands'));
 });
+
+
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -101,5 +108,6 @@ Route::get('/user/password', [ChangePass::class, 'CPassword'])->name('change.pas
 Route::post('/password/update', [ChangePass::class, 'UpdatePassword'])->name('password.update');
 
 // User Profile
-Route::get('/user/profile', [ChangePass::class, 'PUpdate'])->name('profile.update');
-Route::post('/user/profile/update', [ChangePass::class, 'UpdateProfile'])->name('update.user.profile');
+//Route::get('/user/profile', [ChangePass::class, 'PUpdate'])->name('profile.update');
+//Route::post('/user/profile/update', [ChangePass::class, 'UpdateProfile'])->name('update.user.profile');
+//Route::get('/user/profile', [ChangePass::class, 'PUpdate'])->name('profile.show');

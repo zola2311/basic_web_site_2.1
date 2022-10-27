@@ -149,7 +149,7 @@
                       </li>
 
                       <li>
-                        <a href="{{ route('profile.update') }}">
+{{--                        <a href="{{ route('profile.update') }}">--}}
                           <i class="mdi mdi-account"></i> My Profile
                         </a>
                       </li>

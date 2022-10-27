@@ -30,7 +30,6 @@ class BrandController extends Controller
         $validatedData = $request->validate([
             'brand_name' => 'required|unique:brands|min:4',
             'brand_image' => 'required|mimes:jpg.jpeg,png',
-
         ],
             [
                 'brand_name.required' => 'Please Input Brand Name',
@@ -61,7 +60,7 @@ class BrandController extends Controller
             'message' => 'Brand Inserted Successfully',
             'alert-type' => 'success'
         );
-//       return Redirect()->back()->with('$notification');
+//     return Redirect()->back()->with('$notification');
         return Redirect()->back()->with('success','brand inserted');
 
     }
