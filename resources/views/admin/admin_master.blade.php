@@ -154,7 +154,7 @@
                         </a>
                       </li>
                       <li>
-                        <a href="{{ route('change.password') }}">
+{{--                        <a href="{{ route('change.password') }}">--}}
                           <i class="mdi mdi-email"></i> Change Password
                         </a>
                       </li>
