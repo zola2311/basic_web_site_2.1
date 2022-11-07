@@ -98,8 +98,8 @@ Route::get('/admin/message', [ContactController::class, 'AdminMessage'])->name('
 ////
 //
 ///// Home Contact Page Route
-//Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
-//Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
+Route::get('/contact', [ContactController::class, 'Contact'])->name('contact');
+Route::post('/contact/form', [ContactController::class, 'ContactForm'])->name('contact.form');
 
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
