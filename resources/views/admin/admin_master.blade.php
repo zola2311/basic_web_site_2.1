@@ -149,12 +149,12 @@
                       </li>
 
                       <li>
-{{--                        <a href="{{ route('profile.update') }}">--}}
+                        <a href="{{ route('profile.update') }}">
                           <i class="mdi mdi-account"></i> My Profile
                         </a>
                       </li>
                       <li>
-{{--                        <a href="{{ route('change.password') }}">--}}
+                        <a href="{{ route('change.password') }}">
                           <i class="mdi mdi-email"></i> Change Password
                         </a>
                       </li>

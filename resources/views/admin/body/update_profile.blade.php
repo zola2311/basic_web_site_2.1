@@ -9,7 +9,7 @@
 
 @if(session('success'))
      <div class="alert alert-success alert-dismissible fade show" role="alert">
-  <strong>{{ session('success') }}</strong>  
+  <strong>{{ session('success') }}</strong>
   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -20,19 +20,30 @@
      <form method="POST" action="{{ route('update.user.profile') }}" class="form-pill">
           @csrf
 
+         <div class="form-group">
+             <label for="exampleInputEmail1">users image</label>
+             <input type="file" name="brand_image" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $user['profile_photo_path'] }}">
+
+{{--             @error('brand_image')--}}
+{{--             <span class="text-danger"> {{ $message }}</span>--}}
+{{--             @enderror--}}
+
+         </div>
+
+
           <div class="form-group">
                <label for="exampleFormControlInput3">User Name</label>
-               <input type="text" name="name" class="form-control" value="{{ $user['name'] }}" > 
+               <input type="text" name="name" class="form-control" value="{{ $user['name'] }}" >
           </div>
 
           <div class="form-group">
                <label for="exampleFormControlInput3">User Email</label>
-               <input type="text" name="email" class="form-control" value="{{ $user['email'] }}" > 
+               <input type="text" name="email" class="form-control" value="{{ $user['email'] }}" >
           </div>
- 
+
 
           <button type="submit" class="btn btn-primary btn-default"> Update</button>
-           
+
      </form>
 </div>
 									</div>

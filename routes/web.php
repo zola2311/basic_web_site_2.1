@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ChangePass;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Models\Multipic;
@@ -36,12 +37,12 @@ Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
 
-//Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
-//    Route::get('/dashboard', function () {
-////        $users = User::all();// using elequent
-//       $users = DB::table('users')->get();// using the query builder
-//        return view('dashboard',compact('users'));})->name('dashboard');
-//});
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+//        $users = User::all();// using elequent
+       $users = DB::table('users')->get();// using the query builder
+        return view('dashboard',compact('users'));})->name('dashboard');
+});
 
 
 //
@@ -112,11 +113,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/user/logout', [BrandController::class, 'Logout'])->name('user.logout');
 
 //
-///// Chanage Password and user Profile Route
-//Route::get('/user/password', [ChangePass::class, 'CPassword'])->name('change.password');
-//Route::post('/password/update', [ChangePass::class, 'UpdatePassword'])->name('password.update');
+/// Chanage Password and user Profile Route
+Route::get('/user/password', [ChangePass::class, 'CPassword'])->name('change.password');
+Route::post('/password/update', [ChangePass::class, 'UpdatePassword'])->name('password.update');
 
 // User Profile
-//Route::get('/user/profile', [ChangePass::class, 'PUpdate'])->name('profile.update');
-//Route::post('/user/profile/update', [ChangePass::class, 'UpdateProfile'])->name('update.user.profile');
+Route::get('/user/profile', [ChangePass::class, 'PUpdate'])->name('profile.update');
+Route::post('/user/profile/update', [ChangePass::class, 'UpdateProfile'])->name('update.user.profile');
 //Route::get('/user/profile', [ChangePass::class, 'PUpdate'])->name('profile.show');
